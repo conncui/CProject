@@ -41,6 +41,8 @@ void base_data_type() {
   cout << "int data" << (p[1][1][1]) << endl;
 }
 
+void type_name_map({})
+
 int main(int argc, char *argv[]) {
   //
   base_data_type();

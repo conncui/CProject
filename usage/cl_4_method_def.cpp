@@ -41,10 +41,10 @@ void char_arr_2_char_pr_string(){
 }
 
 int main() {
-    cout << "string_to_char_pr: \n";
+    cout << " string_to_char_pr: \n";
     string_to_char_pr();
 
-    cout << "\nusage_c_str: \n";
+    cout << "\n usage_c_str: \n";
     usage_c_str();
 
     cout << "\n char_arr_2_char_pr_string: \n";
