@@ -33,8 +33,14 @@ int main() {
   //   printf("%p", std1);
 
   Student std1;
-
+  std1.age = 1;
   printf("\n&std1: %p", &std1);  // cl_14_point0x107308040
+  printf("\n&std1.age: %d", std1.age);
+
+  Student* std1_p;
+
+  // std1_p = &std1;
+  // printf("\n&std1_p: %p", std1_p);
 
   //   cl_14_point.cpp:24:16: warning: format specifies type 'int' but the
   //   argument has type 'Student *' [-Wformat] printf("%d", &std1);
@@ -46,7 +52,8 @@ int main() {
   Student* std2;
   printf("\n&std2 : %p", &std2);
   // printf("\n&std2->age : %p", &std2->age);
-  printf("\nstd2->age : %d", std2->age);
+  // std2->age = 12341234;
+  // printf("\nstd2->age : %d", std2->age);
 
   // printf("\n&std1->age : %p", std1->age);
 
@@ -75,6 +82,10 @@ int main() {
   printf("\nstd5_p  : %p", std5_p);
   printf("\n&std5_p : %p", &std5_p);
 
+  std5.age = 32;
+  printf("\n&std5.age   : %d", std5.age);
+  printf("\nstd5_p->age : %d", std5_p->age);
+
   //   printf("\nstd5.age : %d", &std5.age);
 
   Student std6;
@@ -101,4 +112,7 @@ int main() {
   printf("\n &num_1_p : %d", &num_1_p);
   printf("\n num_1_p  : %p", num_1_p);
   printf("\n &num_1_p : %p", &num_1_p);
+
+  printf("\n ----------------------------------------------------------------");
+  
 }
