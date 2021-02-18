@@ -8,10 +8,9 @@
                 "/Library/Frameworks",
                 "${workspaceFolder}/**"
             ],
-            "compilerPath": "/usr/bin/g++",
+            "compilerPath": "/usr/bin/clang",
             "cStandard": "c11",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "clang-x64",
+            "cppStandard": "c++11",
             "browse": {
                 "path": [
                     "${workspaceFolder}"

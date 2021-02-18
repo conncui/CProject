@@ -5,11 +5,12 @@
 // #include "string"
 
 #include <iostream>
+#include <map>
 
 using namespace std;
 
 typedef struct Student {
-  string name ="xiao ming";
+  string name = "xiao ming";
   int age = 18;
   int body_height;
 
@@ -18,6 +19,37 @@ typedef struct Student {
   Student() { printf("\n构造函数 %p", this); }
   ~Student() { printf("\n析构函数 %p", this); }
 } Student;
+
+
+template<typename T1, typename T2>
+
+struct Node {
+  T1 x;
+  T2 y;
+
+  // constructor
+  Node(T1 x, T2 y) : x(x), y(y) {}
+
+  // overload < operator to use a Node object as a key in a std::map
+  // It returns true if the current object appears before the specified object
+  bool operator<(const Node& ob) const {
+    return x < ob.x || (x == ob.x && y < ob.y);
+  }
+};
+
+int getMap() {
+  std::map<Node<std::string, std::string>, int> map = {
+      {{"C", "C99"}, 1999},          {{"C", "C11"}, 2011},
+      {{"C++", "C++14"}, 2014},      {{"C++", "C++17"}, 2017},
+      {{"Java", "Java SE 8"}, 2014}, {{"Java", "Java SE 9"}, 2017}};
+
+  for (const auto& entry : map) {
+    auto key = entry.first;
+    std::cout << "{" << key.x << "," << key.y << "}, " << entry.second << '\n';
+  }
+
+  return 0;
+}
 
 int main() {
   printf("cl_14_point");
@@ -59,8 +91,6 @@ int main() {
 
   // printf("\n&std2->age : %p", std2->age);
 
-
-
   Student* std3 = new Student();
   printf("\n&std3 : %p", &std3);
 
@@ -94,10 +124,9 @@ int main() {
   int num_1 = 10;
   int num_2 = 10;
 
-  int * num_1_p = &num_1;
+  int* num_1_p = &num_1;
 
   printf("\n ----------------------------------------------------------------");
-
 
   printf("\n num_1    : %d", num_1);
   printf("\n &num_1   : %d", &num_1);
@@ -114,5 +143,10 @@ int main() {
   printf("\n &num_1_p : %p", &num_1_p);
 
   printf("\n ----------------------------------------------------------------");
-  
+
+  printf(
+      "\n -----------------------------  map "
+      "-----------------------------------");
+
+  // getMap();
 }

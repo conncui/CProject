@@ -1,7 +1,7 @@
 {
     "code-runner.executorMap": {
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "cpp": "cd $dir && g++ $fileName -o $dir../out/$fileNameWithoutExt.out && $dir../out/$fileNameWithoutExt.out",
+        "cpp": "cd $dir && clang++ -std=c++11 $fileName -o $dir../out/$fileNameWithoutExt.out && $dir../out/$fileNameWithoutExt.out",
     },
     "C_Cpp.default.includePath": [
         "/usr/local/opt/opencv@3/include"
@@ -68,6 +68,14 @@
         "type_traits": "cpp",
         "unordered_map": "cpp",
         "utility": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "map": "cpp",
+        "filesystem": "cpp",
+        "__tree": "cpp",
+        "deque": "cpp",
+        "fstream": "cpp",
+        "iomanip": "cpp",
+        "stack": "cpp",
+        "typeindex": "cpp"
     }
 }
