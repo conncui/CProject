@@ -17,13 +17,24 @@ struct Node {
 };
 
 int main() {
+
+    // 在  https://techiedelight.com/compiler/ 上 选择 C++ Clang 编译器试试
+  Node<std::string, std::string> n1 = {"C test", "C99"};
+  printf("%p \n", n1);
+
   std::map<Node<std::string, std::string>, int> map = {
-      {{"C", "C99"}, 1999},          {{"C", "C11"}, 2011},
-      {{"C++", "C++14"}, 2014},      {{"C++", "C++17"}, 2017},
-      {{"Java", "Java SE 8"}, 2014}, {{"Java", "Java SE 9"}, 2017}};
+      {n1, 1000},
+      {{"C", "C99"}, 1999},
+      {{"C", "C11"}, 2011},
+      {{"C++", "C++14"}, 2014},
+      {{"C++", "C++17"}, 2017},
+      {{"Java", "Java SE 8"}, 2014},
+      {{"Java", "Java SE 9"}, 2017}};
 
   for (const auto &entry : map) {
     auto key = entry.first;
+    printf("%p", key);
+
     std::cout << "{" << key.x << "," << key.y << "}, " << entry.second << '\n';
   }
 
