@@ -22,25 +22,23 @@ int main() {
   Node<std::string, std::string> n1 = {"C test", "C99"};
   printf("n1:%p \n", &n1);
 
-  std::map<Node<std::string, std::string>, int> map = {
-      {n1, 1000},
+  std::map<Node<std::string, std::string> *, int> map = {
+      // {n1, 1000},
       // {{"C", "C99"}, 1999},
       // {{"C", "C11"}, 2011},
       // {{"C++", "C++14"}, 2014},
       // {{"C++", "C++17"}, 2017},
       // {{"Java", "Java SE 8"}, 2014},
-      {{"Java", "Java SE 9"}, 2017}};
-
-
+      {&n1, 2017}};
 
 // void *÷
-  for (const auto &entry : map) {
-    const Node<std::string, std::string>& key = entry.first;
-    printf("%p\n", &key);
+  for (auto &entry : map) {
+    Node<std::string, std::string>* key = entry.first;
+    printf("%p\n", key);
     // printf("%d\n", &key);
 
 
-    std::cout << "{" << key.x << "," << key.y << "}, " << entry.second << '\n';
+    std::cout << "{" << key->x << "," << key->y << "}, " << entry.second << '\n';
   }
 
   return 0;
