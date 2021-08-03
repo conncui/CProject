@@ -19,8 +19,9 @@ void change_by_pointer(int *x, int *y){
     int temp = *x;
     *x = *y;
     *y = temp;
-    printf("\n %p  %p",x ,y);
-}
+
+    printf("\n x地址：%d , y地址： %d",&x ,&y);
+    printf("\n x地址：%p , y地址： %p",&x ,&y);}
 
 
 void change_by_ref(int &x, int &y){
@@ -30,13 +31,15 @@ void change_by_ref(int &x, int &y){
     x = y;
     y = temp;
     printf("\n %d  %d",x ,y);
-    printf("\n %d  %d",&x ,&y);
-    printf("\n %p  %p",&x ,&y);
+    printf("\n x地址：%d , y地址： %d",&x ,&y);
+    printf("\n x地址：%p , y地址： %p",&x ,&y);
 }
 
-int main(){
-    int a = 1;
-    int b = 2;
+
+int swap(){
+    int a ,b;
+    a= 1;
+    b = 2;
     printf("\n数据:");
 
     printf("\n %p  %p",a ,b);
@@ -44,8 +47,38 @@ int main(){
     printf("\n %p  %p",&a ,&b);
 
     printf("\n 交换:");
-
+    
+    printf("\n------------------------------------------------------------------- ");
+    a= 1;
+    b = 2;
     change_by_value(a, b);
+    printf("\nchange_by_value   : %d  %d",a ,b);
+
+    printf("\n------------------------------------------------------------------- ");
+    a= 1;
+    b = 2;
     change_by_pointer(&a, &b);
+    printf("\nchange_by_pointer : %d  %d",a ,b);
+
+    printf("\n------------------------------------------------------------------- ");
+    a= 1;
+    b = 2;
     change_by_ref(a, b);
+    printf("\nchange_by_ref     : %d  %d",a ,b);
+}
+
+int get_ptr_ref(){
+    int num = 2222;
+    int *num_ptr = &num;
+    int &num_ref = num;
+    printf("\nnum: %d",num);
+    printf("\n&num: %ld",&num);
+    printf("\nnum_ptr: %ld",num_ptr);
+    printf("\nnum_ref: %ld",num_ref);
+    printf("\n&num_ref: %ld",&num_ref);
+
+}
+int main(){
+    // swap();
+    get_ptr_ref();
 }
